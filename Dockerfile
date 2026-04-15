@@ -1,4 +1,4 @@
-FROM php:8.0-fpm
+FROM php:8.4-fpm 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
     nginx \
@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y \
     libpq-dev \
     && docker-php-ext-install pdo pdo_mysql pdo_pgsql mbstring exif pcntl bcmath gd
 
-    #install composer
+
     COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
     #create a directory for the application
